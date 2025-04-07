@@ -1,0 +1,322 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #000;
+  color: #fff;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Grid layout */
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .calculator-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card styles */
+.card {
+  background-color: #1a1a1a;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #333;
+}
+
+.card-header {
+  padding: 1.25rem;
+  background: linear-gradient(to right, #4a148c, #311b92);
+}
+
+.input-card .card-header {
+  background: linear-gradient(to right, #4a148c, #311b92);
+}
+
+.result-card .card-header {
+  background: linear-gradient(to right, #006064, #01579b);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.card-description {
+  color: #ccc;
+  font-size: 0.875rem;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Input styles */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group:last-child {
+  margin-bottom: 0;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  font-size: 0.875rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input[type="radio"] {
+  accent-color: #bb86fc;
+  width: 1rem;
+  height: 1rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 0.25rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #bb86fc;
+}
+
+.input-field::placeholder {
+  color: #777;
+}
+
+/* Results styles */
+.results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.result-card {
+  flex: 1;
+}
+
+.gauge-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.gauge {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  border: 0.5rem solid #333;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #777;
+  transition: height 0.5s ease-out, background-color 0.5s ease-out;
+  height: 0;
+}
+
+.gauge-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#bmi-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.gauge-label {
+  font-size: 0.875rem;
+  color: #999;
+}
+
+.category-container {
+  text-align: center;
+}
+
+.category-title {
+  font-size: 1.25rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.category-value {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+/* Categories scale */
+.categories-card {
+  padding: 0.5rem 0;
+}
+
+.categories-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.categories-scale {
+  height: 1rem;
+  display: flex;
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.scale-segment {
+  height: 100%;
+}
+
+.scale-segment.bg-blue {
+  width: 18.5%;
+  background-color: #2196f3;
+}
+
+.scale-segment.bg-green {
+  width: 25%;
+  background-color: #4caf50;
+}
+
+.scale-segment.bg-yellow {
+  width: 15%;
+  background-color: #ffeb3b;
+}
+
+.scale-segment.bg-orange {
+  width: 15%;
+  background-color: #ff9800;
+}
+
+.scale-segment.bg-red {
+  width: 15%;
+  background-color: #f44336;
+}
+
+.scale-segment.bg-dark-red {
+  width: 11.5%;
+  background-color: #b71c1c;
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #999;
+}
+
+/* Color classes for BMI categories */
+.text-blue {
+  color: #2196f3;
+}
+
+.text-green {
+  color: #4caf50;
+}
+
+.text-yellow {
+  color: #ffeb3b;
+}
+
+.text-orange {
+  color: #ff9800;
+}
+
+.text-red {
+  color: #f44336;
+}
+
+.text-dark-red {
+  color: #b71c1c;
+}
+
+.bg-blue-fill {
+  background-color: #2196f3;
+}
+
+.bg-green-fill {
+  background-color: #4caf50;
+}
+
+.bg-yellow-fill {
+  background-color: #ffeb3b;
+}
+
+.bg-orange-fill {
+  background-color: #ff9800;
+}
+
+.bg-red-fill {
+  background-color: #f44336;
+}
+
+.bg-dark-red-fill {
+  background-color: #b71c1c;
+}
